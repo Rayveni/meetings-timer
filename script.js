@@ -1,4 +1,4 @@
-var distance_minutes = 1, 
+var distance_minutes = 3, 
 	distance,
     time_left,
 	animation_id = null;

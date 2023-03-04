@@ -1,149 +1,99 @@
-
  :root {
-  --timer_width_outer: 60vmin ;
-  --timer_contorls_h:65vmin ;
-    --timer_height_outer: 80vmin ;
-	 --controls: 10vmin ;
-   --timer_inner_delta: 7vmin ;
-   --timer_inner_width:46vmin ;
-   --timer_back_color:grey;
-
-      --timer_inner_shift:calc((var(--timer_width_outer) - var(--timer_inner_width) )/2);/*(timer_width_outer- timer_inner_width)/2*/
-   --clock_font_size: 14vmin ;
+     --timer_width_outer: 60vmin ;
+     --timer_contorls_h:65vmin ;
+     --timer_height_outer: 80vmin ;
+     --controls: 10vmin ;
+     --timer_inner_delta: 7vmin ;
+     --timer_inner_width:46vmin ;
+     --timer_back_color:grey;
+     --timer_inner_shift:calc((var(--timer_width_outer) - var(--timer_inner_width) )/2);
+    /*(timer_width_outer- timer_inner_width)/2*/
+     --clock_font_size: 14vmin ;
 }
-  .clock-time:before {
-  content: var(--timer-minutes-seconds,"00:00");
-
-}
-  .local_percent:before {
-  content: var(--local_percent_val);
-
+ .clock-time:before {
+     content: var(--timer-minutes-seconds,"00:00");
 }
 
-  .global_percent:before {
-  content:  var(--global_percent_val);  
-
+ .local_percent:before {
+     content: var(--local_percent_val);
+}
+ .global_percent:before {
+     content: var(--global_percent_val);
 }
 
-
-
-.local_info_time{
-
-	position: absolute;
-	top:65%;
-	 z-index: 10;
-	
+ .local_percent{
+     position: absolute;
+     z-index: 10;
 }
-.local_percent{
-
-	position: absolute;
-   z-index: 10;
+ .global_percent{
+     position: absolute;
+     top:2%;
+     z-index: 10;
 }
 
-.global_percent{
-
-	position: absolute;
-	top:2%;
-	   z-index: 10;
+ .center_circle {
+     left: 50%;
+     transform: translate(-50% , -50%);
+     -webkit-transform: translate(-50%, -50%);
+     color:white;
 }
-.global_info_time{
-
-	position: absolute;
-	top:90%;
-	   z-index: 10;
+ .clock_container{
+     position: relative;
+     height: var(--timer_height_outer);
+     background:pink;
 }
-
-
-.center_circle {
-	  left: 50%;
-  transform: translate(-50% , -50%);
-  -webkit-transform: translate(-50%, -50%);
-	color:white;
-}
-
-
-
-.clock_container{
-	 position: relative;
-
-    height: var(--timer_height_outer);
-	background:pink;
-
+ .clock-timer{
+     position: absolute;
+     font-size: var(--clock_font_size);
+     text-transform: uppercase;
+     color:purple;
+     left:50%;
+     z-index: 10;
+     transform: translate(-50%, 0);
 }
 
-
-  .clock-timer{
-	  position: absolute;
-	   font-size: var(--clock_font_size);
-	     text-transform: uppercase;
-		 color:purple;
-		  left:50%;
-   z-index: 10;
-  transform: translate(-50%, 0);
-
-
-  }
-  .invisible{
-	  color:red;
-	  Display:true;
-  }
-  
-
-
-
-.circular-progress-outer {
- position:absolute;
-  width: var(--timer_width_outer);
-  height: var(--timer_width_outer);
-  border:1vh solid transparent;
-  border-radius: 50%;
-
-   z-index: 0;
-  background:
-    linear-gradient(var(--timer_back_color), var(--timer_back_color)) content-box no-repeat,
-  conic-gradient(red var(--outer_percent_deg,0%), 0, green ) border-box; 
-
+ .circular-progress-outer {
+     position:absolute;
+     width: var(--timer_width_outer);
+     height: var(--timer_width_outer);
+     border:1vh solid transparent;
+     border-radius: 50%;
+     z-index: 0;
+     background: linear-gradient(var(--timer_back_color), var(--timer_back_color)) content-box no-repeat, conic-gradient(red var(--outer_percent_deg,0%), 0, green ) border-box;
 }
-.circular-progress-inner {
- position:absolute;
-    width: var(--timer_inner_width);
-  height: var(--timer_inner_width);
-  top:  var(--timer_inner_shift);
-  left: var(--timer_inner_shift);  
-  border:1vh solid transparent;
-  border-radius: 50%;
-   z-index: 1;
-  background:
-    linear-gradient(var(--timer_back_color), var(--timer_back_color)) content-box no-repeat,
-    conic-gradient(green var(--inner_percent_deg,0%), 0, red ) border-box; 
-transition: all 0.1s ease-out;
+ .circular-progress-inner {
+     position:absolute;
+     width: var(--timer_inner_width);
+     height: var(--timer_inner_width);
+     top: var(--timer_inner_shift);
+     left: var(--timer_inner_shift);
+     border:1vh solid transparent;
+     border-radius: 50%;
+     z-index: 1;
+     background: linear-gradient(var(--timer_back_color), var(--timer_back_color)) content-box no-repeat, conic-gradient(green var(--inner_percent_deg,0%), 0, red ) border-box;
+     transition: all 0.1s ease-out;
 }
-
-
-.timer_controls{
-	 display:flex;  flex-direction: row;
-	 justify-content: center;
-	 align-content: space-around; 
-	 flex-wrap: wrap;
-	 position:absolute;
-	height:10vmin ;
-	width:60vmin ;
-	top:var(--timer_contorls_h);
-	  left: var(--timer_inner_shift);  
-	
-
+ .timer_controls{
+     display:flex;
+     flex-direction: row;
+     justify-content: center;
+     align-content: space-around;
+     flex-wrap: wrap;
+     position:absolute;
+     height:10vmin ;
+     width:60vmin ;
+     top:var(--timer_contorls_h);
+     left: var(--timer_inner_shift);
 }
-.player-control{
-	width:var(--controls);  
-	height:var(--controls);
-	  border:1vh solid green;
-  border-radius: 50%;
+ .player-control{
+     width:var(--controls);
+     height:var(--controls);
+     border:1vh solid green;
+     border-radius: 50%;
 }
-.feather{
-	stroke:red;
+ .feather{
+     stroke:red;
 }
-
-
-.timer{
-position:absolute;	
+ .timer{
+     position:absolute;
 }
