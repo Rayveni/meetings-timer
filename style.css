@@ -1,100 +1,86 @@
- :root {
-     --timer_width_outer: 60vmin ;
-     --timer_contorls_h:65vmin ;
-     --timer_height_outer: 80vmin ;
-     --controls: 10vmin ;
-     --timer_inner_delta: 7vmin ;
-     --timer_inner_width:46vmin ;
-     --timer_back_color:grey;
-     --timer_inner_shift:calc((var(--timer_width_outer) - var(--timer_inner_width) )/2);
-    /*(timer_width_outer- timer_inner_width)/2*/
-     --clock_font_size: 14vmin ;
-}
  .clock-time:before {
-     content: var(--timer-minutes-seconds,"00:00");
+     content: var(--timer-minutes-seconds,"03:00");
 }
-
- .local_percent:before {
-     content: var(--local_percent_val);
+ .center_text:before{
+     position:absolute;
+     top:3%;
+     left:50%;
+     transform: translate(-50% , 0%);
+     z-index: 5;
 }
  .global_percent:before {
-     content: var(--global_percent_val);
+     content: var(--global_percent_val,"100%");
 }
-
- .local_percent{
-     position: absolute;
-     z-index: 10;
+ .local_percent:before {
+     content: var(--local_percent_val,"0%");
 }
- .global_percent{
-     position: absolute;
-     top:2%;
-     z-index: 10;
-}
-
- .center_circle {
-     left: 50%;
-     transform: translate(-50% , -50%);
-     -webkit-transform: translate(-50%, -50%);
-	 font-size:2vmin;
+ .clock_container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     /*background:pink;*/
+     width:50vmin;
+     height:auto;
+     aspect-ratio: 1 / 1.2 ;
+     flex-direction: column;
+     justify-content: flex-start ;
+     margin-left:1vh;
+     margin-top:1vh;
      color:white;
+     font-size: 2.5vmin;
 }
- .clock_container{
-     position: relative;
-     height: var(--timer_height_outer);
-     background:pink;
-}
- .clock-timer{
-     position: absolute;
-     font-size: var(--clock_font_size);
-     text-transform: uppercase;
-     color:purple;
-     left:50%;
-     z-index: 10;
-     transform: translate(-50%, 0);
-}
-
- .circular-progress-outer {
-     position:absolute;
-     width: var(--timer_width_outer);
-     height: var(--timer_width_outer);
-     border:1vh solid transparent;
-     border-radius: 50%;
-     z-index: 0;
-     background: linear-gradient(var(--timer_back_color), var(--timer_back_color)) content-box no-repeat, conic-gradient(red var(--outer_percent_deg,0%), 0, green ) border-box;
-}
- .circular-progress-inner {
-     position:absolute;
-     width: var(--timer_inner_width);
-     height: var(--timer_inner_width);
-     top: var(--timer_inner_shift);
-     left: var(--timer_inner_shift);
-     border:1vh solid transparent;
-     border-radius: 50%;
-     z-index: 1;
-     background: linear-gradient(var(--timer_back_color), var(--timer_back_color)) content-box no-repeat, conic-gradient(green var(--inner_percent_deg,0%), 0, red ) border-box;
-     transition: all 0.1s ease-out;
+ .timer {
+     width: 100%;
+     aspect-ratio: 1 / 1 ;
+     /*background:red;*/
+     display: flex;
+     align-items: center;
+     justify-content: center;
 }
  .timer_controls{
+     width: 100%;
+     flex-grow: 1;
+     position: relative;
      display:flex;
+     /*background:black;*/
      flex-direction: row;
      justify-content: center;
-     align-content: space-around;
-     flex-wrap: wrap;
-     position:absolute;
-     height:10vmin ;
-     width:60vmin ;
-     top:var(--timer_contorls_h);
-     left: var(--timer_inner_shift);
+     align-items: center;
+     z-index:2;
 }
  .player-control{
-     width:var(--controls);
-     height:var(--controls);
-     border:1vh solid green;
+     position: relative;
+     height:70%;
+     aspect-ratio: 1 / 1 ;
+     border:1vmin solid green;
+     margin: auto 5%;
      border-radius: 50%;
 }
- .feather{
-     stroke:red;
+ .donat {
+     aspect-ratio: 1 / 1 ;
+     border-radius: 50%;
+     border:1.5vmin solid transparent;
 }
- .timer{
-     position:absolute;
+ .outer-circle{
+     position: relative;
+     width:90%;
+     background: linear-gradient(grey, grey) content-box no-repeat, conic-gradient(yellow var(--outer_percent_deg,100%), 0, green 100% ) border-box;
+     z-index:0;
+     display:flex;
+     justify-content: center;
+     align-items: center;
 }
+
+ .inner-circle{
+     position: relative;
+     width:70%;
+     z-index:1;
+     background: linear-gradient(grey, grey) content-box no-repeat, conic-gradient(blue var(--inner_percent_deg,0%), 0, green ) border-box;
+     display:flex;
+     justify-content: center;
+}
+ .clock-timer{
+     font-size: 10vh;
+     color:purple;
+}
+ 
