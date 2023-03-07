@@ -1,31 +1,61 @@
 <html>
-   <title>Example</title>
-   <link rel="stylesheet" href="style.css">
-   <body>
-      <div class="clock_container">
-		<div class="timer">
-		   <div class="donat outer-circle">
-			  <p class="global_percent center_text" ></p>
-			  <div class="donat inner-circle">
-				 <p class="local_percent center_text"></p>
-				 <p class="clock-time clock-timer"></p>
-			  </div>
-		   </div>
-		</div>
-         <div class="timer_controls">
-            <button onclick="start_timer()" class="player-control">
-               <svg   fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather">
-                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
-               </svg>
-            </button>
-            <button onclick="stop_timer()" class="player-control">
-               <svg  class="feather" fill="white" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-               </svg>
-            </button>
-		
-         </div>
-      </div>
-   </body>
-   <script src="script.js"></script>
-   </html>
+<title>Example</title>
+<link rel="stylesheet" href="countdown.css">
+<link rel="stylesheet" href="style.css">
+
+
+<body>
+	<navbar></navbar>
+	<flex_container>
+		<col1 class="box">
+			<div class="clock_container">
+				<div class="timer">
+					<div class="donat outer-circle">
+						<p class="global_percent center_text"></p>
+						<div class="donat inner-circle">
+							<p class="local_percent center_text"></p>
+							<p class="clock-time clock-timer"></p>
+						</div>
+					</div>
+				</div>
+				<div class="timer_controls">
+					<button onclick="start_timer()" class="player-control">
+						<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather">
+							<polygon points="5 3 19 12 5 21 5 3"></polygon>
+						</svg>
+					</button>
+					<button onclick="stop_timer()" class="player-control">
+						<svg class="feather" fill="white" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</col1>
+		<col2 class="box">
+			<div class="agenda_card card">
+				<div class="card-header">Night</div>
+				<div id="agenda_rows" class="card-main">
+					<input class="card_title" type="text" id="input_title" name="card_title" placeholder="Untitled Agenda">
+					<label id="input_label" class="label" for="input_text">Login</label>
+					<div class="card_row" id="input_row">
+						<input class="input_text" type="text" id="input_text" name="input_text" placeholder="Name">
+						<input type="number" id="input_minuts" name="input_minuts" placeholder="Mins" min="1" max="1440">
+						<button onclick="add_row()" class="add_row">
+							<svg height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M12 5L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> </svg>
+						</button>
+					</div>
+					<label id="error_text" class="label" for="login">Please name your time block, e.g. = Greeting</label>
+					<label id="error_min" class="label" for="login">Please set your minutes for this time block</label>
+				</div>
+			</div>
+			</div>
+		</col2>
+	</flex_container>
+
+</body>
+<script src="countdown.js" defer></script>
+<script src="script.js" defer></script>
+</html>

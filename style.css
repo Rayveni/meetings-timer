@@ -1,25 +1,123 @@
- .clock-time:before {
-     content: var(--timer-minutes-seconds,"03:00");
+ 
+/*layout*/
+ navbar{
+     width:100%;
+     height:10vh;
+     display:flex;
+     background:green;
 }
- .center_text:before{
-     position:absolute;
-     top:3%;
-     left:50%;
-     transform: translate(-50% , 0%);
-     z-index: 5;
+ flex_container{
+     width:98%;
+     min-height:85vh;
+     display:flex;
+     background:red;
 }
- .global_percent:before {
-     content: var(--global_percent_val,"100%");
+ .box{
+     position:relative;
+     display:flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
 }
- .local_percent:before {
-     content: var(--local_percent_val,"0%");
+ col1 {
+     background-color: blue;
+     width:30vw;
 }
- .clock_container {
-     display: flex;
+ col2 {
+     position:relative;
+     background-color: navy;
      flex-wrap: wrap;
      justify-content: space-between;
-     /*background:pink;*/
-     width:50vmin;
+     width:70vw;
+     height:100%;
+}
+ @media screen and (orientation:portrait) {
+     .container {
+        flex-direction:column;
+    }
+}
+/*card */
+ .agenda_card{
+     width: 90%;
+    /* Set width of cards */
+}
+ .card {
+     display: flex;
+    /* Children use Flexbox */
+     flex-direction: column;
+    /* Rotate Axis */
+     border: 1vmin solid #EF9A9A;
+    /* Set up Border */
+     border-radius: 5%;
+    /* Slightly Curve edges */
+     overflow: hidden;
+    /* Fixes the corners */
+     overflow-x: hidden;
+     overflow-y: auto;
+     height:80vh;
+}
+ .card-header {
+     color: #D32F2F;
+     text-align: center;
+     font-size: 12px;
+     font-weight: 600;
+     border-bottom: 1vmin solid #EF9A9A;
+     background-color: #FFEBEE;
+     padding: 1vmin 1vmin;
+}
+ .card-main {
+     display: flex;
+    /* Children use Flexbox */
+     flex-direction: column;
+    /* Rotate Axis to Vertical */
+     justify-content: center;
+    /* Group Children in Center */
+     align-items: left;
+    /* Group Children in Center (on cross axis) */
+     padding: 1vmin 0;
+    /* Add padding to the top/bottom */
+}
+ .card_row{
+     background:white;
+     border: 1vmin solid green;
+     padding: 1vmin 1vmin;
+     display: flex;
+     flex-direction: row;
+     height:5vh;
+     justify-content: space-between;
+}
+ .card_title{
+    width:95%;
+     padding: 1vmin 1vmin;
+     height:6vh;
+     margin-left:1vmin;
+     border-radius: 1.2vmin ;
+}
+ .input_row{
+     height:2vh;
+}
+ .input_text{
+    width:80%;
+     border-radius: 1vmin 0 0 1vmin ;
+}
+ .input_minuts{
+    width:5%;
+     background:orange;
+}
+ .add_row{
+     background:black;
+     border-radius: 0 1vmin 1vmin 0;
+}
+/*card*/
+/*https://css-tricks.com/boxes-fill-height-dont-squish
+/*/
+/*layout*/
+/* clock timer block*/
+ .clock_container {
+    /* display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     width:90%;
      height:auto;
      aspect-ratio: 1 / 1.2 ;
      flex-direction: column;
@@ -28,59 +126,18 @@
      margin-top:1vh;
      color:white;
      font-size: 2.5vmin;
-}
- .timer {
-     width: 100%;
-     aspect-ratio: 1 / 1 ;
-     /*background:red;*/
      display: flex;
-     align-items: center;
-     justify-content: center;
-}
- .timer_controls{
-     width: 100%;
-     flex-grow: 1;
-     position: relative;
-     display:flex;
-     /*background:black;*/
-     flex-direction: row;
-     justify-content: center;
-     align-items: center;
-     z-index:2;
-}
- .player-control{
-     position: relative;
-     height:70%;
-     aspect-ratio: 1 / 1 ;
-     border:1vmin solid green;
-     margin: auto 5%;
-     border-radius: 50%;
-}
- .donat {
-     aspect-ratio: 1 / 1 ;
-     border-radius: 50%;
-     border:1.5vmin solid transparent;
-}
- .outer-circle{
-     position: relative;
+     flex-wrap: wrap;
+     justify-content: space-between;
+    */
+	position:relative;
      width:90%;
-     background: linear-gradient(grey, grey) content-box no-repeat, conic-gradient(yellow var(--outer_percent_deg,100%), 0, green 100% ) border-box;
-     z-index:0;
-     display:flex;
-     justify-content: center;
-     align-items: center;
-}
+     height:auto;
 
- .inner-circle{
-     position: relative;
-     width:70%;
-     z-index:1;
-     background: linear-gradient(grey, grey) content-box no-repeat, conic-gradient(blue var(--inner_percent_deg,0%), 0, green ) border-box;
-     display:flex;
-     justify-content: center;
+     flex-direction: column;
+     justify-content: flex-start ;
+   
+     color:white;
+     font-size: 2.5vmin;
 }
- .clock-timer{
-     font-size: 10vh;
-     color:purple;
-}
- 
+/* clock timer end block*/
